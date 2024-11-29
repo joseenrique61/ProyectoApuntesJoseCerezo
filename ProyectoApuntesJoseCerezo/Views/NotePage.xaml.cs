@@ -1,4 +1,4 @@
-namespace ProyectoApuntesJoseCerezo;
+namespace ProyectoApuntesJoseCerezo.Views;
 
 public partial class NotePage : ContentPage
 {
