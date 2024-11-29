@@ -8,10 +8,10 @@
     Title="ProyectoApuntesJoseCerezo">
 
     <FlyoutItem Title="Flyout 1">
-        <Tab Title="Note Page">
+        <Tab Title="All Notes Page">
             <ShellContent
                 Title="José Cerezo"
-                ContentTemplate="{DataTemplate local:NotePage}"
+                ContentTemplate="{DataTemplate local:AllNotesPage}"
                 Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
         </Tab>
         <Tab Title="About Page">
@@ -23,10 +23,10 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Flyout 2">
-        <Tab Title="Note Page">
+        <Tab Title="All Notes Page">
             <ShellContent
                 Title="José Cerezo"
-                ContentTemplate="{DataTemplate local:NotePage}"
+                ContentTemplate="{DataTemplate local:AllNotesPage}"
                 Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
         </Tab>
         <Tab Title="About Page">
