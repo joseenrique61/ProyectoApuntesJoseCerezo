@@ -4,12 +4,36 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProyectoApuntesJoseCerezo"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="ProyectoApuntesJoseCerezo">
 
-    <ShellContent
-        Title="José Cerezo"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Flyout 1">
+        <Tab Title="Note Page">
+            <ShellContent
+                Title="Notes"
+                ContentTemplate="{DataTemplate local:NotePage}"
+                Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
+        </Tab>
+        <Tab Title="About Page">
+            <ShellContent
+                Title="About"
+                ContentTemplate="{DataTemplate local:AboutPage}"
+                Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />        
+        </Tab>
+    </FlyoutItem>
 
+    <FlyoutItem Title="Flyout 2">
+        <Tab Title="Note Page">
+            <ShellContent
+                Title="Notes"
+                ContentTemplate="{DataTemplate local:NotePage}"
+                Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
+        </Tab>
+        <Tab Title="About Page">
+            <ShellContent
+                Title="About"
+                ContentTemplate="{DataTemplate local:AboutPage}"
+                Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />        
+        </Tab>
+    </FlyoutItem>
 </Shell>
