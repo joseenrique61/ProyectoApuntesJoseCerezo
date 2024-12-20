@@ -2,22 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoApuntesJoseCerezo.Views.AllNotesPage"
+             xmlns:viewModels="clr-namespace:ProyectoApuntesJoseCerezo.ViewModels"
              Title="Your Notes">
+    <ContentPage.BindingContext>
+        <viewModels:JCNotesViewModel />
+    </ContentPage.BindingContext>
+
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
+        <ToolbarItem x:Name="jc_toolbar" Text="Add" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
 
     <!-- Display notes in a list -->
-    <CollectionView x:Name="notesCollection"
-                        ItemsSource="{Binding Notes}"
+    <CollectionView x:Name="jc_notesCollection"
+                        ItemsSource="{Binding AllNotes}"
                         Margin="20"
                         SelectionMode="Single"
-                        SelectionChanged="notesCollection_SelectionChanged">
-
+                       SelectionChangedCommand="{Binding SelectNoteCommand}"
+                    SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
         <!-- Designate how the collection of items are laid out -->
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            <LinearItemsLayout x:Name="jc_lil" Orientation="Vertical" ItemSpacing="10" />
         </CollectionView.ItemsLayout>
 
         <!-- Define the appearance of each item in the list -->
