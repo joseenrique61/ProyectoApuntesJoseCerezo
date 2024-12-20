@@ -1,6 +1,6 @@
 ﻿namespace ProyectoApuntesJoseCerezo.Models
 {
-	class About
+	class JCAbout
 	{
 		public string Title => "José Cerezo";
 

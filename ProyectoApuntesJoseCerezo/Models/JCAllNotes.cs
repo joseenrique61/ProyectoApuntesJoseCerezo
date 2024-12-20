@@ -2,11 +2,11 @@
 
 namespace ProyectoApuntesJoseCerezo.Models;
 
-internal class AllNotes
+internal class JCAllNotes
 {
-    public ObservableCollection<Note> Notes { get; set; } = new ObservableCollection<Note>();
+    public ObservableCollection<JCNote> Notes { get; set; } = new ObservableCollection<JCNote>();
 
-    public AllNotes() =>
+    public JCAllNotes() =>
         LoadNotes();
 
     public void LoadNotes()
@@ -17,13 +17,13 @@ internal class AllNotes
         string appDataPath = FileSystem.AppDataDirectory;
 
         // Use Linq extensions to load the *.notes.txt files.
-        IEnumerable<Note> notes = Directory
+        IEnumerable<JCNote> notes = Directory
 
                                     // Select the file names from the directory
                                     .EnumerateFiles(appDataPath, "*.notes.txt")
 
                                     // Each file name is used to create a new Note
-                                    .Select(filename => new Note()
+                                    .Select(filename => new JCNote()
                                     {
                                         Filename = filename,
                                         Text = File.ReadAllText(filename),
@@ -34,7 +34,7 @@ internal class AllNotes
                                     .OrderBy(note => note.Date);
 
         // Add each note into the ObservableCollection
-        foreach (Note note in notes)
+        foreach (JCNote note in notes)
             Notes.Add(note);
     }
 }

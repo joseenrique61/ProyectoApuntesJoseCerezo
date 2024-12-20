@@ -2,25 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoApuntesJoseCerezo.Views.AboutPage"
-             xmlns:models="clr-namespace:ProyectoApuntesJoseCerezo.Models"
+             xmlns:viewModels="clr-namespace:ProyectoApuntesJoseCerezo.ViewModels"
              Title="José Cerezo">
     <ContentPage.BindingContext>
-        <models:About />
+        <viewModels:JCAboutViewModel />
     </ContentPage.BindingContext>
     <ScrollView>
-        <VerticalStackLayout Spacing="10" Margin="10">
-            <HorizontalStackLayout Spacing="10">
-                <Image Source="dotnet_bot.png"
+        <VerticalStackLayout x:Name="jc_vsl" Spacing="10" Margin="10">
+            <HorizontalStackLayout x:Name="jc_hsl" Spacing="10">
+                <Image x:Name="jc_image1" Source="dotnet_bot.png"
                    SemanticProperties.Description="The dot net bot waving hello!"
                    HeightRequest="64" />
-                <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
+                <Label x:Name="jc_label1" FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
             </HorizontalStackLayout>
 
-            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
-            <Label Text="{Binding Message}" />
+            <Label x:Name="jc_label2" FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
+            <Label x:Name="jc_label3" Text="{Binding Message}" />
 
-            <Image Source="{Binding Image}"
+            <Image x:Name="jc_image2" Source="{Binding Image}"
                HeightRequest="500"/>
+            <Button x:Name="jc_btn" Text="Más información..." Command="{Binding ShowMoreInfoCommand}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
