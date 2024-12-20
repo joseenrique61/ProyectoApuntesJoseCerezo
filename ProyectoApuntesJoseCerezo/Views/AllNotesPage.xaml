@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoApuntesJoseCerezo.Views.AllNotesPage"
              xmlns:viewModels="clr-namespace:ProyectoApuntesJoseCerezo.ViewModels"
-             Title="Your Notes">
+             Title="Your Notes"
+             NavigatedTo="ContentPage_NavigatedTo">
     <ContentPage.BindingContext>
         <viewModels:JCNotesViewModel />
     </ContentPage.BindingContext>
