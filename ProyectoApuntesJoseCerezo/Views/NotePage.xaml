@@ -2,21 +2,23 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoApuntesJoseCerezo.Views.NotePage"
-             xmlns:models="clr-namespace:ProyectoApuntesJoseCerezo.Models"
-             x:DataType="models:Note">
-    <VerticalStackLayout Spacing="10" Margin="5">
-        <Editor x:Name="TextEditor"
+             xmlns:viewModels="clr-namespace:ProyectoApuntesJoseCerezo.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModels:JCNoteViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout x:Name="jc_vsl" Spacing="10" Margin="5">
+        <Editor x:Name="jc_TextEditor"
                 Placeholder="Enter your note"
                 Text="{Binding Text}"
                 HeightRequest="100" />
 
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="Save"
-                    Clicked="SaveButton_Clicked" />
+        <Grid x:Name="jc_grid" ColumnDefinitions="*,*" ColumnSpacing="4">
+            <Button x:Name="jc_btn1" Text="Save"
+                    Command="{Binding SaveCommand}" />
 
-            <Button Grid.Column="1"
+            <Button x:Name="jc_btn2" Grid.Column="1"
                     Text="Delete"
-                    Clicked="DeleteButton_Clicked" />
+                   Command="{Binding DeleteCommand}" />
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
